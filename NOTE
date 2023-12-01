@@ -1,0 +1,4 @@
+Khi đã đẩy lên GITHUB muốn cậo nhập lại thù dùng ba câu lệnh sau
+git add .
+git commit -m "update"
+git push -u origin
