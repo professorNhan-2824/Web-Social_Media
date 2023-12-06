@@ -69,12 +69,18 @@ if (isset($ngongu) && isset($noidung)) {
             $conn = mysqli_connect("localhost", "root", "", "db_web_da");
 
             $sql = "INSERT INTO `dangtin` (`email`, `noidung`, `file`, `ngongu`,`repost`,`time`) VALUES ('" . $_SESSION['email'] . "', '$noidung', '$imagePath', '$ngongu', '0',' $chuoiThoiGian')";
-
             if ($conn->query($sql) === TRUE) {
+                $sql2 = "SELECT MAX(IDTin) as maxid FROM `dangtin` WHERE 1";
+                $ketqua = mysqli_query($conn,$sql2);
+                $row = mysqli_fetch_assoc($ketqua);
+                $dem = $row['maxid'];
+                $sql1 = "INSERT INTO `likepage`(`id`, `idtin`, `email`) VALUES ('0',' $dem','" . $_SESSION['email'] . "')";
+                $conn->query($sql1);
                 echo "<script>
                     alert('Thành công');
                     window.location.href = 'congdong.php';
                 </script>";
+                
             } else {
                 echo "<script>
                     alert('Lỗi');
