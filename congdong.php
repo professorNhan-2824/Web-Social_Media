@@ -438,6 +438,7 @@
                                                 <hr>
                                                 <div class='row d-flex justify-content-center align-content-center'>
                                                 <div class="col-4">
+                                                    <input id='taikhoan<?php echo $tin; ?>' type="hidden" value="<?php echo $_SESSION['taikhoan']; ?>">
                                                     <input id='soluong<?php echo $tin; ?>' type="hidden" value="<?php echo $_SESSION['email']; ?>">
                                                     <input id='bai<?php echo $tin; ?>' type="hidden" value="<?php echo  $tin;?>">
                                                     <button type="submit" class="btn btn-default w-100 like-button" data-tin="<?php echo $tin; ?>">
@@ -496,59 +497,9 @@
                                                                         <span class="close" id="closeBinhluan<?php echo $tin; ?>">&times;</span>
                                                                     </div>
                                                                 </div>
-                                                                <hr>
-                                                                <div class="row h-100" >
-                                                                <select class="w-25 mb-3">
-                                                                    <option value="Phổ biến">Phổ biến</option>
-                                                                    <option value="Tất cả">Tất cả</option>
-                                                                </select>
-                                                                <?php
-                                                                   $sql5="SELECT binhluan.noidung1, dangky.taikhoan, dangky.anh
-                                                                   FROM binhluan INNER JOIN dangky
-                                                                   on binhluan.email = dangky.email
-                                                                   WHERE binhluan.idbai = '$tin'";
-                                                                   $ketqua6 = mysqli_query($conn,$sql5);
-                                                                   
-                                                                   while($row7 = mysqli_fetch_array($ketqua6)){
-                                                                       echo"<div  class='col-12 d-flex'>";
-                                                                        echo "<div class='row pe-3'>";
-                                                                                echo'<image style="width: 68px; /* Điều chỉnh kích thước theo ý muốn */
-                                                                                height: 50px; /* Điều chỉnh kích thước theo ý muốn */
-                                                                                border-radius: 50%; /* Làm cho ảnh trở thành hình tròn */
-                                                                                object-fit: cove;padding-top:5px;" src='.$row7['anh'].'> </image>';
-                                                                        echo "</div>";
-                                                                        echo"<div style='background:#b3b3b3;border-radius: 25px;' class='row '>";
-                                                                            echo"<div class='col-12'>";
-                                                                                    echo "<b class='h5'>".$row7['taikhoan']." </b>";
-                                                                            echo"</div>";
-                                                                            echo"<div class='col-12>";
-                                                                                echo "<p class='pt-2 ps-3'> ".$row7['noidung1']."</p>";
-                                                                            echo"</div>";
-                                                                        echo "</div>";
-                                                                       echo "</div>";
-                                                                   }
-                
-                                                                    ?>
-                                                                </div>
-                                                                <div class="row">
-                                                                    <div class="col-1">
-                                                                        <?php
-                                                                       
-                                                                         echo'<image class="anhbinhluan" style="width: 68px; /* Điều chỉnh kích thước theo ý muốn */
-                                                                            height: 70px; /* Điều chỉnh kích thước theo ý muốn */
-                                                                            border-radius: 50%; /* Làm cho ảnh trở thành hình tròn */
-                                                                            object-fit: cove;padding-top:5px;" src=./'.$row['anh'].'> </image>';
-                                                                        
-                                                                      ?>
-                                                                    </div>
-                                                                    <div class="col-9 d-flex justify-content-center ">
-                                                                        <input type="text" class="form-control h-75 mt-3" placeholder="Nhập bình luận">
-                                                                    </div>
-                                                                    <div class="col-2">
-                                                                    <button type="submit" class="btn btn-success mt-3"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAABEUlEQVR4nO3UsS4FQRjF8Q1RSDwB4gUkGoVGiyfQ3cQjKCgVWlEpFZp9hHsr8QQSCYWCSkUh0QgJEfnJ5k6xNjN7197ViNNM5pvN+c93ZvNl2b9Kwiy2cZJ1JUxjEwN8GGpnXNMJrOIYz77rE3NtjRexjztpnbbN9SJhWMRyU9r32uYa01Po6D3sXzDTJteYbrGBx1Itr7t1rrkGxUPiulJfHxXLWQPzI0yhX6nfY7JJ9inIG7bCdweR88ORj1sDecBKOO8lLrDUCBCBXGIh1JfxGjG/amxegewVa9jPh05i2v0xIAI7T5i3Hw0lQNFJN6Ohxd/VGxtQA0mPho4geWfmCcha9hsyhBSzq340/Al9AZHHBW9fwOz7AAAAAElFTkSuQmCC"></button>
-                                                                    </div>
-                                                                </div>
-                                                                
+                                                                <?PHP
+                                                                INCLUDE('test2.php');
+                                                                ?>
                                                             </div>
                                                         </div>
                                                         <script>

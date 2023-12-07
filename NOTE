@@ -2,3 +2,8 @@ Khi đã đẩy lên GITHUB muốn cậo nhập lại thù dùng ba câu lệnh 
 git add .
 git commit -m "update"
 git push -u origin
+cap nhat code len git:
+git status
+git add .
+git commit -m 'update j do'
+git push origin main
