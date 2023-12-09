@@ -1,8 +1,13 @@
 RewriteEngine On
 
 RewriteRule ^HOME$ /DOAN/index.php [NC,L,QSA]
+
 RewriteRule ^LOGIN$ /DOAN/dangnhap.php [NC,L,QSA]
+
 RewriteRule ^CREATE_NEW_ACCTOR$ /DOAN/dangky.php [NC,L,QSA]
+
 RewriteRule ^dang_nhap$ /DOAN/dangnhap.php [NC,L,QSA]
+
 RewriteRule ^dang_nhap$ /DOAN/dangnhap.php [NC,L,QSA]
+
 RewriteRule ^dang_nhap$ /DOAN/dangnhap.php [NC,L,QSA]
