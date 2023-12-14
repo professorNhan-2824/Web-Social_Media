@@ -26,10 +26,10 @@ session_start();
 
     </head>
 
-    <body>
+    <body >
 
         <!-- Begin page -->
-      
+      <!-- <div class='col-12'> -->
         <?php
             include ("./header1.php");
             // include ("./menu1.php");
@@ -69,7 +69,7 @@ session_start();
 <tbody id='table3'>
 <?php
                                 $conn = mysqli_connect("localhost","root","","db_web_da");
-                                $sql = "SELECT * FROM `dangtin` WHERE email = '".$_SESSION['email']."'";
+                                $sql = "SELECT * FROM `dangtin` WHERE email = '".$_SESSION['email']."' ORDER BY time DESC ";
                                 $result = mysqli_query($conn, $sql);
                                 while( $row = mysqli_fetch_array($result) ){
                                     echo'<tr>';
@@ -86,7 +86,8 @@ session_start();
                                     $dem2 = $row2['ketqua1'];
                                     echo "<td>".$dem."</td>";
                                     echo "<td>".$dem2."</td>";
-                                    // echo '<input type="hidden" id="email1" value="'.$row['email'].'">';
+                                    echo '<td><button type="submit" id="guixoa" class=" btn btn-danger">Xóa</button></a></td>';
+                                    echo '<input type="hidden" id="IDTin" value="'.$row['IDTin'].'">';
                                     // echo '<td><button type="button" id="xoa"  class="btn btn-danger">REMOTE</button></td>';
                                     echo'</tr>';
                                 }
@@ -94,7 +95,26 @@ session_start();
 
 </tbody>
 </table>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script>
+            $(document).ready(function() {
+                $('#guixoa').click(function() {
+                    $.ajax({
+                        method: "post",
+                        url: 'xoapage.php',
+                        data: {
+                            IDTin: $('#IDTin').val(),
+                        },
+                        success: function(data) {
+                            location.reload();
+                        },
+                        error: function(jqXHR, textStatus, errorThrown) {
+                            console.log('AJAX request failed: ' + textStatus, errorThrown);
+                        }
+                    });
+                });
+            });
+</script>
 </div>
                         <!-- <div class="container-fluid" style="background-color: #808080;border-radius: 20px;">
                                 
@@ -301,6 +321,6 @@ session_start();
                 });
             });
 </script>
-
+<!-- </div> -->
     </body>
 </html>

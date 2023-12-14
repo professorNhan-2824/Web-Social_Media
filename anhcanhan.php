@@ -91,8 +91,10 @@
                                             }else if($_SESSION['admin'] == '0'){
                                                 echo '<p><a style="text-decoration: none;color: black;" href="/DOAN/ttcanhan.php">Thông tin cá nhân</a></p>';
                                             }
+                                            echo "<hr>";
                                             echo '<p><a style="text-decoration: none;color: black;" href="/DOAN/upvex-admin-dashboard/hoatdong.php">Hoạt động</a></p>';
-                                    ?>
+                                   
+                                   ?>
             <!-- <p><a style="text-decoration: none;color: black;" href="/DOAN/ttcanhan.php">Thông tin cá nhân</a></p> -->
         </div>
         <form style='padding-left:10px' method='POST' action='/DOAN/CNdangxuat.php'> <button class='green-button'>Đăng Xuất</button></form>
